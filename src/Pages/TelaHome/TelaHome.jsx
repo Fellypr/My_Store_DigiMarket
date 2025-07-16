@@ -69,8 +69,8 @@ function TelaHome() {
           modules={[ Autoplay]}
           spaceBetween={20}
           slidesPerView={1}
-          autoplay={{ delay: 5500 }}
-          loop = {true}
+          autoplay={{ delay: 4000 }}
+         
           className="mySwiper"
         >
           {banner.map((banner) => (
