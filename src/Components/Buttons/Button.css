@@ -1,0 +1,52 @@
+.btn {
+ position: relative;
+ overflow: hidden;
+ outline: none;
+ cursor: pointer;
+ border-radius: 20px;
+ background-color: hsl(236, 50%, 40%);
+ border: solid 2px hsl(50deg 100% 50%);
+ font-family: inherit;
+ width: 100%;
+}
+
+.default-btn,.hover-btn {
+ background-color: hsl(0, 0%, 6%);
+ display: -webkit-box;
+ display: -moz-box;
+ display: -ms-flexbox;
+ display: -webkit-flex;
+ display: flex;
+ align-items: center;
+ gap: 15px;
+ padding: 15px 20px;
+ border-radius: 20px;
+ font-size: 17px;
+ font-weight: 500;
+ text-transform: uppercase;
+ transition: all .3s ease;
+}
+
+.hover-btn {
+ position: absolute;
+ inset: 0;
+ background-color: hsl(128, 96%, 30%);
+ transform: translate(0%,100%);
+}
+
+.default-btn span {
+ color: hsl(0, 0%, 100%);
+}
+
+.hover-btn span {
+ color: hsl(0, 0%, 100%);
+ 
+}
+
+.btn:hover .default-btn {
+ transform: translate(0%,-100%);
+}
+
+.btn:hover .hover-btn {
+ transform: translate(0%,0%);
+}

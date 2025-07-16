@@ -1,0 +1,135 @@
+/* ProductPage.css */
+.product-container {
+  display: flex;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+}
+
+.left-section {
+  flex: 1;
+  text-align: center;
+}
+
+.main-image {
+  width: 300px;
+  height: auto;
+}
+
+.button-container{
+  margin-top: 1rem;
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  
+}
+
+.thumb {
+  width: 60px;
+  height: auto;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.zoom-msg {
+  font-size: 12px;
+  color: #007185;
+  margin-top: 10px;
+}
+
+.right-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.rating {
+  margin: 10px 0;
+  color: #f0c14b;
+}
+
+.price-section {
+  background: #f6f6f6;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.promo-tag {
+  background: #c40000;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.price {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #00c41a;
+}
+.extra-discount-text{
+    color: #000;
+    font-size: 16px;
+}
+.discount {
+  color: #c40000;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 14px;
+}
+
+.exclusive {
+  color: #555;
+  font-size: 13px;
+}
+
+.extra-discount {
+  color: #000;
+  font-size: 13px;
+}
+
+.extra-discount .green {
+  color: green;
+  font-weight: bold;
+}
+
+.installments {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.icons {
+  margin-top: 15px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.color-select {
+  margin-top: 20px;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.color-thumb {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
