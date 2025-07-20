@@ -27,7 +27,7 @@ function TelaHome() {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:5289/api/AdicionarProduto/BuscarProdutos"
+        "https://api-store-g1mu.onrender.com/api/AdicionarProduto/BuscarProdutos"
       );
 
       setProdutos(response.data);

@@ -51,7 +51,7 @@ function AdminHome() {
   async function getProducts() {
     try {
       const response = await axios.get(
-        "http://localhost:5289/api/AdicionarProduto/BuscarProdutos"
+        "https://api-store-g1mu.onrender.com/api/AdicionarProduto/BuscarProdutos"
       );
       setProduct(response.data);
     } catch (error) {
@@ -115,13 +115,13 @@ function AdminHome() {
     try {
       if (produtoId) {
         await axios.put(
-          `http://localhost:5289/api/AdicionarProduto/AtualizarProduto/${produtoId}`,
+          `https://api-store-g1mu.onrender.com/api/AdicionarProduto/AtualizarProduto/${produtoId}`,
           { ...produto, Id: produtoId }
         );
         alert("Produto editado com sucesso!");
       } else {
         await axios.post(
-          "http://localhost:5289/api/AdicionarProduto/Products",
+          "https://api-store-g1mu.onrender.com/api/AdicionarProduto/Products",
           produto
         );
         alert("Produto adicionado com sucesso!");
@@ -139,7 +139,7 @@ function AdminHome() {
   async function deleteProduct(id) {
     try {
       await axios.delete(
-        `http://localhost:5289/api/AdicionarProduto/DeletarProduto/${id}`
+        `https://api-store-g1mu.onrender.com/api/AdicionarProduto/DeletarProduto/${id}`
       );
       alert("Produto deletado com sucesso!");
       getProducts();

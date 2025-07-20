@@ -30,7 +30,7 @@ const ProductPage = () => {
     }
   };
   const urlDetalhe =
-    "http://localhost:5289/api/AdicionarProduto/DetalheDoProduto/";
+    "https://api-store-g1mu.onrender.com/api/AdicionarProduto/DetalheDoProduto/";
   const { id } = useParams();
   const [detalheDoProduto, setDetalheDoProduto] = useState(null);
   const [produtos, setProdutos] = useState(null);

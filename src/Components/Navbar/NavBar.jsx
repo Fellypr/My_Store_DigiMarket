@@ -21,7 +21,7 @@ function NavBar() {
   async function buscarProdutos() {
     try {
       const response = await axios.post(
-        "http://localhost:5289/api/AdicionarProduto/Buscar",
+        "https://api-store-g1mu.onrender.com/api/AdicionarProduto/Buscar",
         {
           Product: search,
         },
