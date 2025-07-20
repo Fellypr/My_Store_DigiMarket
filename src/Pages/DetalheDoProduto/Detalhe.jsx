@@ -1,6 +1,6 @@
 import React from "react";
 import "./Detalhe.css";
-import Button from "../../Components/Buttons/button";
+import Button from "../../Components/Buttons/Button";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
