@@ -1,12 +1,56 @@
-# React + Vite
+# 🛒 Sistema de Loja - React + ASP.NET Core + PostgreSQL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao repositório do **Sistema de Loja**, uma aplicação completa desenvolvida com **React** no frontend, **ASP.NET Core** no backend e **PostgreSQL** como banco de dados. O sistema permite **visualização de produtos**, **pesquisa inteligente**, e uma **área administrativa** para **cadastrar, editar e excluir** produtos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+### 👨‍💼 Área Pública (Clientes)
+- 🔍 Pesquisa de produtos pelo nome
+- 🛍️ Exibição de todos os produtos disponíveis
+- 📱 Interface responsiva e amigável
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🛠️ Área Administrativa (Funcionários)
+- ➕ Adição de novos produtos
+- 📝 Edição de produtos existentes
+- ❌ Exclusão de produtos
+- 🔐 Interface segura, acessível somente a funcionários da loja
+
+---
+
+## 🧱 Tecnologias Utilizadas
+
+### 🎨 Frontend
+- [React](https://reactjs.org/)
+- Axios para requisições HTTP
+- React Router para navegação de páginas
+- CSS customizado para estilização
+
+### 🚀 Backend
+- [ASP.NET Core Web API](https://learn.microsoft.com/aspnet/core/)
+- Controllers e Services bem organizados
+- Acesso a dados via Dapper ou Entity Framework (dependendo da sua escolha)
+
+### 🗃️ Banco de Dados
+- [PostgreSQL](https://www.postgresql.org/)
+- Tabelas normalizadas para produtos
+- Integração com ASP.NET via string de conexão
+
+---
+
+## 🚀 Como Executar Localmente
+
+### Pré-requisitos
+
+- Node.js (v18+)
+- .NET SDK (7.0+)
+- PostgreSQL instalado
+- Yarn ou NPM
+
+### 🔧 Backend
+
+```bash
+cd backend
+dotnet restore
+dotnet run
