@@ -71,3 +71,18 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 623px) {
+  .cardRedes{
+    gap: 10px;
+    
+  }
+  .socialContainer{
+    min-width:30px;
+    min-height: 30px;
+    max-width: 15px;
+    max-height: 15px;
+    
+  }
+  
+}

@@ -22,7 +22,6 @@ function TelaHome() {
 
   function selecionarProduto(produto) {
     setProdutosSelected(produto);
-    console.log("Os produtos selecionados", produtosSelected);
   }
   async function buscarProdutos() {
     try {
@@ -58,7 +57,7 @@ function TelaHome() {
     },
     {
       id: 4,
-      img: "img/Banner/Unitv.png",
+      img: "img/Banner/Banner_Com_Numero.png",
     }
   ];
 
@@ -83,29 +82,28 @@ function TelaHome() {
 
       <section>
         <div className="category">
-          <h3>Categorias Disponivel</h3>
           <div className="categories">
             <div className="icons">
               <button className="btnIcon">
-                <MdOutlineBook size={40} />
+                <MdOutlineBook className="iconsCategory"/>
                 <p>Ebooks</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <LuTvMinimalPlay size={40} />
+                <LuTvMinimalPlay className="iconsCategory"/>
                 <p>Unitv</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <RiFileExcel2Fill size={40} />
+                <RiFileExcel2Fill  className="iconsCategory"/>
                 <p>Planilhas</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <IoSchoolSharp size={40} />
+                <IoSchoolSharp  className="iconsCategory"/>
                 <p>Mapas mentais</p>
               </button>
             </div>

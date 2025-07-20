@@ -9,8 +9,8 @@
     margin-top: 3rem;
     & img {
       border-radius: 30px;
-      width: 80%;
-      height: 80%;
+      width: 70%;
+      height: 60%;
     }
   }
   & section {
@@ -20,11 +20,11 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0px;
-    gap: 10px;
-    margin-top: 3rem;
+    gap: 20px;
+    margin-top: 0.6rem;
     & .category {
       display: flex;
-      padding: 20px;
+      padding: 10px;
       flex-direction: column;
       width: 94%;
       height: auto;
@@ -43,10 +43,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
         width: 100%;
-        padding: 0px 40px 0px 40px;
-        gap: 15rem;
+        padding: 0px 10px 0px 10px;
+        gap: 10rem;
         & .icons {
           display: flex;
           justify-content: center;
@@ -55,6 +54,10 @@
             background-color: transparent;
             border: none;
             font-size: 0.8rem;
+            & .iconsCategory {
+              width: 40px;
+              height: 40px;
+            }
           }
           & .btnIcon:hover {
             cursor: pointer;
@@ -91,9 +94,32 @@
   }
 }
 
+@media screen and (max-width: 730px) {
+  .categories {
+    width: 100% !important;
+    gap: 5rem !important;
+  }
+  .iconsCategory{
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
 @media screen and (max-width: 830px) {
   .telaHome {
     & .banner {
+      margin-top: 5rem;
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .telaHome {
+    & .banner {
+      margin-top: 7rem;
       & img {
         width: 100%;
         height: 100%;
@@ -103,8 +129,12 @@
 }
 
 @media screen and (max-width: 580px) {
-  .categories{
-    flex-direction: column;
+  .categories {
+    width: 100% !important;
+    gap: 3rem !important;
   }
-  
+  .iconsCategory{
+    width: 20px !important;
+    height: 20px !important;
+  }
 }

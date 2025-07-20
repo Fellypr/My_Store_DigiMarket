@@ -6,6 +6,9 @@ import { FiEdit } from "react-icons/fi";
 import { IoIosAdd } from "react-icons/io";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { SlPicture } from "react-icons/sl";
+import { data } from "react-router-dom";
+import { BiBody } from "react-icons/bi";
 
 function AdminHome() {
   const [product, setProduct] = useState([]);
@@ -16,10 +19,20 @@ function AdminHome() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [picture, setPicture] = useState("");
+  const [linkVenda, setLinkVenda] = useState("");
   const [produtoId, setProdutoId] = useState(null);
-  
+
+  const [PicturePrimaria, setPicturePrimaria] = useState("");
+  const [PictureSecundaria, setPictureSecundaria] = useState("");
+  const [PictureTerciaria, setPictureTerciaria] = useState("");
+
+  function viewPicture(picture) {
+    window.scrollTo(0, 0);
+    setPicturePreview(picture);
+  }
 
   function Adicionar(addProduct) {
+    window.scrollTo(0, 0);
     setAdiconar(addProduct);
   }
 
@@ -51,11 +64,16 @@ function AdminHome() {
   }, []);
 
   function carregarParaEdicao(produto) {
+    window.scrollTo(0, 0);
     setProdutoId(produto.id);
     setNameProduct(produto.nameProduct);
     setDescription(produto.description);
     setCategory(produto.category);
     setPicture(produto.picture);
+    setLinkVenda(produto.LinkVenda || "");
+    setPicturePrimaria(produto.PictureFirst || "");
+    setPictureSecundaria(produto.pictureSecond || "");
+    setPictureTerciaria(produto.pictureThird || "");
     setPrice(
       parseFloat(produto.price).toLocaleString("pt-BR", {
         style: "currency",
@@ -72,6 +90,10 @@ function AdminHome() {
     setCategory("");
     setPicture("");
     setPrice("R$ 0,00");
+    setLinkVenda("");
+    setPicturePrimaria("");
+    setPictureSecundaria("");
+    setPictureTerciaria("");
   }
 
   async function salvarProduto() {
@@ -83,8 +105,11 @@ function AdminHome() {
       Description: description,
       Category: category,
       Picture: picture,
-      Price: valorLimpo
-
+      Price: valorLimpo,
+      LinkVenda: linkVenda,
+      PictureFirst: PicturePrimaria,
+      PictureSecond: PictureSecundaria,
+      PictureThird: PictureTerciaria,
     };
 
     try {
@@ -102,6 +127,7 @@ function AdminHome() {
         alert("Produto adicionado com sucesso!");
       }
 
+      console.log(produto);
       getProducts();
       setAdiconar(false);
       resetarFormulario();
@@ -121,22 +147,10 @@ function AdminHome() {
       alert("Erro ao deletar produto!" + error.message);
     }
   }
+  console.log(product);
 
   return (
     <div className="adminHome">
-      <div className="adminCategory">
-        <h3>Categorias</h3>
-        <IoIosAdd className="addCategory" />
-        {product.map((product) => (
-          <div className="adminCategories" key={product.id}>
-            <ul>
-              <li>
-                {product.category} <FiEdit />
-              </li>
-            </ul>
-          </div>
-        ))}
-      </div>
       <div className="adminProducts">
         <IoIosAdd className="addProduct" onClick={() => Adicionar(true)} />
         {product.map((product) => (
@@ -159,6 +173,11 @@ function AdminHome() {
               <button onClick={() => deleteProduct(product.id)}>
                 <IoTrashBinOutline size={30} className="deleteProduct" />
               </button>
+
+              <button onClick={() => viewPicture(product)}>
+                <SlPicture size={30} className="viewProduct" />
+              </button>
+
               <button onClick={() => carregarParaEdicao(product)}>
                 <FiEdit className="editProduct" size={30} />
               </button>
@@ -217,12 +236,52 @@ function AdminHome() {
 
             <div className="Inputs">
               <label htmlFor="Descricao">Descrição</label>
-              <input
+              <textarea
                 type="text"
                 id="Descricao"
                 className="Descricao"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+
+            <div className="Inputs">
+              <label htmlFor="Venda">Link Da Venda</label>
+              <input
+                type="text"
+                id="Venda"
+                value={linkVenda}
+                onChange={(e) => setLinkVenda(e.target.value)}
+              />
+            </div>
+
+            <div className="Inputs">
+              <label htmlFor="imagem1">Imagem Primaria</label>
+              <input
+                type="text"
+                id="imagem1"
+                value={PicturePrimaria}
+                onChange={(e) => setPicturePrimaria(e.target.value)}
+              />
+            </div>
+
+            <div className="Inputs">
+              <label htmlFor="imagem2">Imagem Secundaria</label>
+              <input
+                type="text"
+                id="imagem2"
+                value={PictureSecundaria}
+                onChange={(e) => setPictureSecundaria(e.target.value)}
+              />
+            </div>
+
+            <div className="Inputs">
+              <label htmlFor="imagem3">Imagem Terceira</label>
+              <input
+                type="text"
+                id="imagem3"
+                value={PictureTerciaria}
+                onChange={(e) => setPictureTerciaria(e.target.value)}
               />
             </div>
 
