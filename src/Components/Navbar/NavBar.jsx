@@ -15,7 +15,7 @@ function NavBar() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!search) return;
-    navigate(`categoria?produto=${encodeURIComponent(search)}`);
+    navigate(`/categoria?produto=${encodeURIComponent(search)}`);
     setSearch(" ");
   }
   async function buscarProdutos() {
@@ -79,7 +79,7 @@ function NavBar() {
             <div>
               {produtosFiltrados.map((item) => (
                 <Link
-                  to={`detalhe/${item.id}`}
+                  to={`/detalhe/${item.id}`}
                   key={item.id}
                   className="result"
                 >
