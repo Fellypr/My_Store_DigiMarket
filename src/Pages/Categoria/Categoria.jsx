@@ -14,7 +14,6 @@ function Categoria() {
       const response = await axios.get(
         `https://api-store-g1mu.onrender.com/api/AdicionarProduto/BuscarProdutosPelaQuery?produto=${encodeURIComponent(query)}`
       );
-      console.log(response.data);
       setProdutosSearch(response.data);
     } catch (error) {
       console.log(error);

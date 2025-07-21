@@ -39,7 +39,6 @@ const ProductPage = () => {
   async function GetDate(url) {
     try {
       const response = await axios.get(url);
-      console.log("Detalhe do produto:", response.data);
       setDetalheDoProduto(response.data);
       setProdutos(response.data);
       setImagemSelecionada(response.data.picture);

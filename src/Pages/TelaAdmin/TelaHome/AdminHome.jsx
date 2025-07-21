@@ -7,7 +7,6 @@ import { IoIosAdd } from "react-icons/io";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { SlPicture } from "react-icons/sl";
-import { data } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 
 function AdminHome() {
@@ -25,11 +24,6 @@ function AdminHome() {
   const [PicturePrimaria, setPicturePrimaria] = useState("");
   const [PictureSecundaria, setPictureSecundaria] = useState("");
   const [PictureTerciaria, setPictureTerciaria] = useState("");
-
-  function viewPicture(picture) {
-    window.scrollTo(0, 0);
-    setPicturePreview(picture);
-  }
 
   function Adicionar(addProduct) {
     window.scrollTo(0, 0);
