@@ -40,7 +40,6 @@ function button() {
           <span>Compre Por Aqui!</span>
         </div>
       </button>
-      {/* pronto */}
     </>
   );
 }
