@@ -39,7 +39,7 @@ function Cards({ produtos }) {
       </div>
 
       <button>
-        <Link to={`/detalhe/${produtos.id}`} >Detalhe Do Produto</Link>
+        <Link to={`detalhe/${produtos.id}`} >Detalhe Do Produto</Link>
       </button>
     </div>
   );
