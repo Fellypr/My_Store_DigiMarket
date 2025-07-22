@@ -2,16 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./TelaLoginAdmin.css";
 import axios from "axios";
+import Loading from "../../Components/Loading/Loading";
 
 import { MdAdminPanelSettings } from "react-icons/md";
 function TelaLoginAdmin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [palavraChave, setPalavraChave] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    async function GetLogin() {
+    async function GetLogin(e) {
+        e.preventDefault();
         try {
+            setLoading(true);
             const response = await axios.post("https://api-store-g1mu.onrender.com/api/Login/LoginForAdministrator",{
                 Email: email,
                 Password: password,
@@ -24,7 +28,10 @@ function TelaLoginAdmin() {
             alert("Login feito com sucesso!");
             navigate("/admin");
         } catch (error) {
-            alert("Erro no Login" + error.message);
+            console.log(error);
+            alert("Erro no Login!");
+        }finally{
+            setLoading(false);
         }
     } 
   return (
@@ -48,6 +55,9 @@ function TelaLoginAdmin() {
         </div>
         <button type="submit">Entrar</button>
       </form>
+      <div className={loading ? "loadingLogin" : ""}>
+        {loading && <Loading />}
+      </div>
     </div>
   );
 }

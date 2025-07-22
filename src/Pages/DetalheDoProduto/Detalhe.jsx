@@ -63,6 +63,7 @@ const ProductPage = () => {
     produtos.pictureThird,
   ].filter(Boolean);
 
+
   return (
     <div className="product-container">
       <div className="left-section">
@@ -116,7 +117,10 @@ const ProductPage = () => {
         </div>
 
         <div className="button-container">
-          <Button href={detalheDoProduto.linkVenda} text="Comprar" />
+          <Button
+            text="Adicionar ao carrinho"
+            detalheDoProduto={detalheDoProduto}
+          />
         </div>
       </div>
     </div>

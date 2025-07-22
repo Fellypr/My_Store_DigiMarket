@@ -168,10 +168,6 @@ function AdminHome() {
                 <IoTrashBinOutline size={30} className="deleteProduct" />
               </button>
 
-              <button onClick={() => viewPicture(product)}>
-                <SlPicture size={30} className="viewProduct" />
-              </button>
-
               <button onClick={() => carregarParaEdicao(product)}>
                 <FiEdit className="editProduct" size={30} />
               </button>

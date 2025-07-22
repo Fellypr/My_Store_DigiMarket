@@ -72,7 +72,7 @@
       flex-direction: column;
       width: 90%;
       height: auto;
-      gap: 40px;
+      gap: 60px;
       border-radius: 30px;
       background-color: rgb(255, 255, 255);
       border: 1px solid rgba(175, 175, 175, 0.26);
@@ -83,15 +83,33 @@
         text-align: flex-start;
       }
       & .cards {
-        flex-wrap: wrap;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 50px;
+        gap: 10px;
         padding: 10px;
       }
     }
   }
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.mySwiperCard{
+  width: 95% !important;
+  height: 95% !important;
 }
 
 @media screen and (max-width: 730px) {
@@ -119,10 +137,10 @@
 @media screen and (max-width: 830px) {
   .telaHome {
     & .banner {
-      margin-top: 7rem;
+      margin-top: 4.5rem;
       & img {
         width: 100%;
-        height: 100%;
+
       }
     }
   }
@@ -136,5 +154,14 @@
   .iconsCategory{
     width: 20px !important;
     height: 20px !important;
+  }
+  .mySwiperCard{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .cards{
+    flex-wrap: wrap !important;
   }
 }

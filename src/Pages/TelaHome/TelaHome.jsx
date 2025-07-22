@@ -1,4 +1,3 @@
-
 import "./TelaHome.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -8,7 +7,7 @@ import { RiFileExcel2Fill } from "react-icons/ri";
 import { IoSchoolSharp } from "react-icons/io5";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -19,6 +18,27 @@ function TelaHome() {
   const [produtos, setProdutos] = useState([]);
   const [produtosSelected, setProdutosSelected] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [slidePreview, setSlidePreview] = useState(4);
+
+  useEffect(() => {
+    function atualizarSlides() {
+      if (window.innerWidth <= 470) {
+        setSlidePreview(2);
+      } else if (window.innerWidth <= 1250) {
+        setSlidePreview(3);
+      } else {
+        setSlidePreview(4);
+      }
+    }
+    atualizarSlides();
+
+    window.addEventListener("resize", atualizarSlides);
+
+    return () => {
+      window.removeEventListener("resize", atualizarSlides);
+    };
+  }, []);
 
   function selecionarProduto(produto) {
     setProdutosSelected(produto);
@@ -33,7 +53,7 @@ function TelaHome() {
       setProdutos(response.data);
     } catch (error) {
       console.log("Erro ao buscar produtos", error);
-    }finally{
+    } finally {
       setLoading(false);
     }
   }
@@ -58,18 +78,19 @@ function TelaHome() {
     {
       id: 4,
       img: "img/Banner/Banner_Com_Numero.png",
-    }
+    },
   ];
+
+  const categoria = [...new Set(produtos.map((p) => p.category))];
 
   return (
     <div className="telaHome">
       <picture className="banner">
         <Swiper
-          modules={[ Autoplay]}
-          spaceBetween={20}
+          modules={[Autoplay]}
+          spaceBetween={50}
           slidesPerView={1}
           autoplay={{ delay: 4000 }}
-         
           className="mySwiper"
         >
           {banner.map((banner) => (
@@ -85,40 +106,61 @@ function TelaHome() {
           <div className="categories">
             <div className="icons">
               <button className="btnIcon">
-                <MdOutlineBook className="iconsCategory"/>
+                <MdOutlineBook className="iconsCategory" />
                 <p>Ebooks</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <LuTvMinimalPlay className="iconsCategory"/>
-                <p>Unitv</p>
+                <LuTvMinimalPlay className="iconsCategory" />
+                <p>Tv Digital</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <RiFileExcel2Fill  className="iconsCategory"/>
+                <RiFileExcel2Fill className="iconsCategory" />
                 <p>Planilhas</p>
               </button>
             </div>
             <div className="icons">
               <button className="btnIcon">
-                <IoSchoolSharp  className="iconsCategory"/>
+                <IoSchoolSharp className="iconsCategory" />
                 <p>Mapas mentais</p>
               </button>
             </div>
           </div>
         </div>
         <div className="products">
-          <h3>Produtos Disponivel</h3>
-          <div className="cards" key={produtos.id}>
-            {produtos.map((produtos) => (
-              <Cards produtos={produtos} />
-            ))}
-          </div>
+          {categoria.map((categoria) => (
+            <div key={categoria} className="cardsCategory">
+              <h3 className="titleCategory">{categoria}</h3>
+              <br />
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={10}
+                slidesPerView={slidePreview}
+                autoplay={{ delay: 4000 }}
+                pagination={{ clickable: true }}
+                className="mySwiperCard"
+              >
+                <div className="cards">
+                  {produtos
+                    .filter((produtos) => produtos.category === categoria)
+                    .map((produtos) => (
+                      <SwiperSlide key={produtos.id}>
+                        <Cards produtos={produtos} />
+                      </SwiperSlide>
+                    ))}
+                </div>
+              </Swiper>
+            </div>
+          ))}
+          
         </div>
       </section>
-      {loading && <Loading />}
+      <div className={loading ? "loading" : ""}>
+          {loading && <Loading />}
+      </div>
     </div>
   );
 }
