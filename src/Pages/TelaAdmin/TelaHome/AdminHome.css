@@ -1,59 +1,70 @@
-
 .adminHome {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
   gap: 20px;
   padding: 30px;
-  margin-top: 4rem;
+  margin-top: 8rem;
   color: rgb(255, 255, 255);
-  
-  & .adminCategory {
-    width: 20%;
+  & .Banner {
+    width: 300px;
+    height: 100px;
+    border-radius: 12px;
+    background-color: rgb(30, 255, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & .Banner:hover {
+    scale: 1.1;
+    cursor: pointer;
+  }
+  & .bannerContainer {
+    width: 50%;
     height: auto;
     padding: 20px;
-    background-color: #5858586c;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid blue;
-    box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    -webkit-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    -moz-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    & h3 {
-      color: rgb(255, 255, 255);
-      font-size: 30px;
-      text-align: center;
-    }
-    & .addCategory {
-      width: 30px;
-      height: 30px;
-      color: rgb(255, 255, 255);
-      font-size: 30px;
-      position: absolute;
-      top: 10px;
-      right: 10px;
+    background-color: rgba(0, 0, 102, 0.616);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    border-radius: 12px;
+    & button {
+      width: 200px;
+      height: 40px;
+      border-radius: 12px;
+      background-color: rgb(0, 255, 13);
+      color: rgb(0, 0, 0);
       cursor: pointer;
-      background-color: transparent;
     }
-    & .adminCategories {
-      & ul {
-        & li {
-          cursor: pointer;
-          list-style: none;
-          font-size: 20px;
-          margin: 10px;
-          color: rgb(255, 255, 255);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          & svg {
-            cursor: pointer;
-          }
-        }
-      }
+    & button:hover {
+      scale: 1.1;
     }
+  }
+  & .closeBanner {
+    color: red;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  .AddBanner {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.411);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    z-index: 7;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
   }
   & .adminProducts {
     display: flex;
@@ -65,13 +76,10 @@
     height: auto;
     padding: 10px;
     gap: 10px;
-    background-color: rgba(31, 30, 30, 0.603);
+    background-color: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     border-radius: 12px;
-    border: 1px solid blue;
-    box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    -webkit-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    -moz-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
+    border: 1px solid rgb(0, 0, 0);
     & .addProduct {
       width: 30px;
       height: 30px;
@@ -107,8 +115,11 @@
       height: auto;
       padding: 10px;
       gap: 10px;
-      background-color: rgb(177, 177, 177);
       padding: 10px;
+      background-color: rgba(0, 0, 0, 0.582);
+      border-radius: 20px;
+      border: 1px solid rgb(39, 236, 0);
+
       & picture {
         width: 100%;
         height: 150px;
@@ -136,15 +147,15 @@
     backdrop-filter: blur(10px);
     top: 0rem;
 
-    & .close{
+    & .close {
       position: relative;
       top: 1rem;
       right: 1rem;
       width: 50px;
-      height: 50px; 
+      height: 50px;
       color: rgb(255, 0, 0);
       /* font-size: 30px; */
-      cursor: pointer
+      cursor: pointer;
     }
     & .addContainer {
       display: grid;
@@ -173,7 +184,7 @@
           color: black;
         }
       }
-      & button{
+      & button {
         width: 100%;
         height: 70px;
         border-radius: 10px;
@@ -188,7 +199,7 @@
   }
 }
 
-.picturePreview{
+.picturePreview {
   width: 50%;
   height: auto;
   padding: 30px;
@@ -207,34 +218,62 @@
   box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
   -webkit-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
   -moz-box-shadow: -1px 0px 12px 0px rgba(20, 44, 255, 0.75);
-    & .closePictues{
-      color: red; 
-      cursor: pointer;
-    }
-    & .inputsLabels{
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+  & .closePictues {
+    color: red;
+    cursor: pointer;
+  }
+  & .inputsLabels {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    & input {
       width: 100%;
-      & input{
-        width: 100%;
-        height: 30px;
-        border-radius: 10px;
-        border: none;
-        padding: 10px;
-        color: black;
-      }
-    }
-    & button{
-      width: 100%;
-      height: 40px;
+      height: 30px;
       border-radius: 10px;
       border: none;
+      padding: 10px;
       color: black;
-      cursor: pointer;
-      background-color: rgb(14, 233, 7);
-      color: rgb(255, 255, 255);
-      font-size: 1rem;
     }
-  
+  }
+  & button {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    background-color: rgb(14, 233, 7);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+  }
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+
+  & label {
+    color: aliceblue;
+  }
+  & input {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: black;
+    outline: 1px solid rgb(0, 0, 0);
+  }
+}
+
+.banners{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

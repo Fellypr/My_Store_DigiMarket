@@ -21,7 +21,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="login" element={<TelaLoginAdmin />} /> 
 
           <Route element={<Protection />}>
-            <Route path="admin" element={<TelaAdmin />} />
+            <Route path="2012200519901985" element={<TelaAdmin />} />
           </Route>
 
           <Route path="*" element={<Found />} />       

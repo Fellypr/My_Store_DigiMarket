@@ -13,6 +13,7 @@ function AdminHome() {
   const [product, setProduct] = useState([]);
   const [price, setPrice] = useState("R$ 0,00");
   const [Adiconar, setAdiconar] = useState(null);
+  const [AdiconarBanner, setAdiconarBanner] = useState(null);
 
   const [nameProduct, setNameProduct] = useState("");
   const [description, setDescription] = useState("");
@@ -29,7 +30,10 @@ function AdminHome() {
     window.scrollTo(0, 0);
     setAdiconar(addProduct);
   }
-
+  function AdicionarBanner(addBanner) {
+    window.scrollTo(0, 0);
+    setAdiconarBanner(addBanner);
+  }
   function formatarMoeda(e, setValor) {
     const valorNumerico = e.target.value.replace(/\D/g, "");
     const valorFormatado = (Number(valorNumerico) / 100).toLocaleString(
@@ -64,8 +68,8 @@ function AdminHome() {
     setDescription(produto.description);
     setCategory(produto.category);
     setPicture(produto.picture);
-    setLinkVenda(produto.LinkVenda || "");
-    setPicturePrimaria(produto.PictureFirst || "");
+    setLinkVenda(produto.linkVenda || "");
+    setPicturePrimaria(produto.pictureFirst || "");
     setPictureSecundaria(produto.pictureSecond || "");
     setPictureTerciaria(produto.pictureThird || "");
     setPrice(
@@ -141,11 +145,11 @@ function AdminHome() {
       alert("Erro ao deletar produto!" + error.message);
     }
   }
-  console.log(product);
 
   return (
     <div className="adminHome">
       <div className="adminProducts">
+        <h2 style={{ color: "black" }}>Produtos Disponiveis</h2>
         <IoIosAdd className="addProduct" onClick={() => Adicionar(true)} />
         {product.map((product) => (
           <div className="adminCards" key={product.id}>

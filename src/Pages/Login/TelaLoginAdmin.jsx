@@ -16,7 +16,7 @@ function TelaLoginAdmin() {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await axios.post("https://api-store-g1mu.onrender.com/api/Login/LoginForAdministrator",{
+            const response = await axios.post("http://localhost:5289/api/Login/LoginForAdministrator",{
                 Email: email,
                 Password: password,
                 KeyCode: palavraChave
@@ -26,7 +26,7 @@ function TelaLoginAdmin() {
                 },
             })
             alert("Login feito com sucesso!");
-            navigate("/admin");
+            navigate("/2012200519901985");
         } catch (error) {
             console.log(error);
             alert("Erro no Login!");
