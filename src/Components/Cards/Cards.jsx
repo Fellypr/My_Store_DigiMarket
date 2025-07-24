@@ -20,7 +20,7 @@ function Cards({ produtos }) {
   }
 
   return (
-    <div className="cardsContainer" key={produtos.id}>
+    <Link to={`/detalhe/${produtos.id}`} className="cardsContainer" key={produtos.id}>
       <picture>
         <img src={produtos.picture} alt="" />
       </picture>
@@ -37,11 +37,7 @@ function Cards({ produtos }) {
             : "R$0,00"}
         </p>
       </div>
-
-      <button>
-        <Link to={`/detalhe/${produtos.id}`} >Detalhe Do Produto</Link>
-      </button>
-    </div>
+    </Link>
   );
 }
 

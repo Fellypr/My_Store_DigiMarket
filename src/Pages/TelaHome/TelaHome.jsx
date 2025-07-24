@@ -68,10 +68,6 @@ function TelaHome() {
       img: "img/Banner/Banner para loja de eletrônicos promoção desconto moderno preto e roxo.png",
     },
     {
-      id: 2,
-      img: "img/Banner/Simple Creative Mind Map Brainstorm.png",
-    },
-    {
       id: 3,
       img: "img/Banner/PLANILHAS.png",
     },

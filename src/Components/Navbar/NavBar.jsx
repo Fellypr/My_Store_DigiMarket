@@ -16,7 +16,7 @@ function NavBar() {
     e.preventDefault();
     if (!search) return;
     navigate(`/categoria?produto=${encodeURIComponent(search)}`);
-    setSearch(" ");
+    setSearch("");
   }
   async function buscarProdutos() {
     try {
